@@ -8,6 +8,11 @@ form {
   width: 100%;
 }
 
+.error{
+  color:$pink-dark;
+  text-align: center;
+}
+
 .book-grid {
   display: grid;
   grid-template-columns: 50% 50%;

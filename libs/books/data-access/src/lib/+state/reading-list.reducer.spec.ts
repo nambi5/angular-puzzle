@@ -32,24 +32,43 @@ describe('Books Reducer', () => {
       expect(result.ids.length).toEqual(3);
     });
 
+    it('addToReadingList should do book addition to the state', () => {
+      const action = ReadingListActions.addToReadingList({
+        book: createBook('C')
+      });
+
+      const result: State = reducer(state, action);
+
+      expect(result.ids).toEqual(['A','B','C']);
+    });
+
     it('failedAddToReadingList should undo book addition to the state', () => {
       const action = ReadingListActions.failedAddToReadingList({
-        book: createBook('B')
+        book: createBook('C')
+      });
+
+      const result: State = reducer(state, action);
+
+      expect(result.ids).toEqual(['A','B']);
+    });
+
+    it('removeFromReadingList should do book removal from the state', () => {
+      const action = ReadingListActions.removeFromReadingList({
+        item: createReadingListItem('B')
       });
 
       const result: State = reducer(state, action);
 
       expect(result.ids).toEqual(['A']);
     });
-
     it('failedRemoveFromReadingList should undo book removal from the state', () => {
       const action = ReadingListActions.failedRemoveFromReadingList({
-        item: createReadingListItem('C')
+        item: createReadingListItem('B')
       });
 
       const result: State = reducer(state, action);
 
-      expect(result.ids).toEqual(['A', 'B', 'C']);
+      expect(result.ids).toEqual(['A', 'B']);
     });
   });
 

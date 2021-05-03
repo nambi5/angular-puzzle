@@ -9,11 +9,20 @@ describe('When: Use the search feature', () => {
 
     const form = await $('form');
     const input = await $('input[type="search"]');
-    await input.sendKeys('javascript');
+    await input.sendKeys('java');
     await form.submit();
 
     const items = await $$('[data-testing="book-item"]');
     expect(items.length).toBeGreaterThan(1);
+  });
+  
+  it('Then: I should be able move a book to reading list', async () => {
+    await browser.wait(ExpectedConditions.presenceOf($('#wantToRead[ng-reflect-disabled=false]')));
+    const disabledWantToRead = await $$("#wantToRead[ng-reflect-disabled=true]");
+
+    await $('#wantToRead[ng-reflect-disabled=false]').click();
+
+    expect((await $$("#wantToRead[disabled='true']")).length).toBe(disabledWantToRead.length+1);
   });
 
   xit('Then: I should see search results as I am typing', async () => {

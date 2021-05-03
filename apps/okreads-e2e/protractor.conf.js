@@ -50,7 +50,7 @@ exports.config = {
     return new Promise(res => setTimeout(res, 3000))
   },
   specs: [
-    './src/specs/reading-list.spec.ts',
-    './src/specs/search-books.spec.ts'
+    './src/specs/search-books.spec.ts',
+    './src/specs/reading-list.spec.ts'
   ]
 };
