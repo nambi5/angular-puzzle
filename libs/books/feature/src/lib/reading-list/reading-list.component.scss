@@ -19,6 +19,21 @@
     flex-direction: column;
     justify-content: center;
   }
+  .mat-icon {
+    background: #413b3b;
+    color: white;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .mat-warn .mat-icon {
+    color: #ffc2c2;
+    background: red;
+  }
+  .mat-primary .mat-icon {
+    color: #c5e8c8;
+    background: green;
+  }
 }
 
 .reading-list-item--cover {
@@ -31,6 +46,10 @@
   flex: 1;
   min-width: 0;
   margin-right: $spacing-xxs;
+  pre{
+    margin: 2.5px 0 0px;
+    color:$gray60;
+  }
 }
 
 .reading-list-item--details--title,

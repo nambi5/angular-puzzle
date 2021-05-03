@@ -37,6 +37,7 @@
               color="primary"
               (click)="addBookToReadingList(b)"
               [disabled]="b.isAdded"
+              [innerHTML]='b.isFinished ? "Finished" : "Want to Read"'
             >
               Want to Read
             </button>
